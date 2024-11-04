@@ -6,12 +6,14 @@ from rest_framework.response import Response
 from .models import Seat
 from rest_framework import status
 
+# GET
 @api_view(['GET'])
 def get_seats(request):
     seats = Seat.objects.all()
     seat_data = [{"seat_number": seat.seat_number, "is_occupied": seat.is_occupied} for seat in seats]
     return Response(seat_data)
 
+# POST
 @api_view(['POST'])
 def add_seat(request):
     seat_number = request.data.get("seat_number")
@@ -24,6 +26,7 @@ def add_seat(request):
 
     return Response({"message": "Seat added successfully"})
 
+# POST
 @api_view(['POST'])
 def update_seat_status(request):
     seat_number = request.data.get("seat_number")

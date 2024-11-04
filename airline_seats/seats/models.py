@@ -1,8 +1,8 @@
 from django.db import models
 
-# Create your models here.
 
 
+# Create the model
 class Seat(models.Model):
     seat_number = models.CharField(max_length=10, unique=True)
     is_occupied = models.BooleanField(default=False)
