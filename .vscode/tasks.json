@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "clang++",
+            "args": [
+                "-std=c++17",
+                "${workspaceFolder}/main.cpp",
+                "-I", "/usr/local/include",  // Chemin vers les en-têtes SFML installés
+                "-L", "/usr/local/lib",      // Chemin vers les bibliothèques SFML installées
+                "-lsfml-graphics",
+                "-lsfml-window",
+                "-lsfml-system",
+                "-o", "${workspaceFolder}/SFMLApp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
